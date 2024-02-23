@@ -1,4 +1,6 @@
 using APITest.Data;
+using APITest.Interfaces;
+using APITest.Repositories;
 using Microsoft.EntityFrameworkCore;
 using PokemonReviewApp;
 
@@ -8,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddTransient<Seed>();
+builder.Services.AddScoped<IPokemonRepository, PokemonRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
